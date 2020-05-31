@@ -29,6 +29,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background: @color_lightest;
 }
 
 *:not(.mat-icon) {
@@ -42,6 +43,7 @@ html, body {
 /* Heading starts */
 h1, h2, h3, h4, h5, h6, .button, .button-dark {
   font-family: 'Quicksand', sans-serif!important;
+  font-weight: normal;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0 10px;
@@ -53,7 +55,7 @@ h1 {
 h2 { font-size: 48px!important; }
 h3 { font-size: 32px!important; }
 h4 { font-size: 24px!important; }
-h5 { font-size: 18px!important; }
+h5 { font-size: 20px!important; }
 h6 { font-size: 16px!important; }
 
 @media(max-width: 768px) {
@@ -66,7 +68,7 @@ h6 { font-size: 16px!important; }
   }
   h2 { font-size: 32px!important; }
   h3 { font-size: 24px!important; }
-  h4 { font-size: 18px!important; }
+  h4 { font-size: 20px!important; }
   h5 { font-size: 18px!important; }
   h6 { font-size: 16px!important; }
 }
@@ -88,6 +90,11 @@ p {
 /* Heading ends */
 
 /* General Material Classes starts */
+.mat-card {
+  border-radius: 0!important;
+  padding: 20px!important;
+}
+.mat-card-footer { margin: 0; }
 .mat-checkbox-layout .mat-checkbox-label, .mat-radio-label-content { white-space: initial!important; }
 .mat-icon {
   height: auto!important;
@@ -95,15 +102,20 @@ p {
 }
 .mat-tab-nav-bar, .mat-tab-header { border-bottom: @border_line; }
 .mat-tab-body-content { padding: 10px 5px!important; }
-.mat-error { font-size: @text_smaller_size; }
+.mat-error { font-size: @text_smallest_size; }
+@media(max-width: 768px) {
+  .mat-card {
+    padding: 10px;
+  }
+}
 /* General Material Classes ends */
 
 /* Container class starts */
 .component-container {
-  padding: 10px 15% 30px;
-  font-size: @text_normal_size;
-  min-height: 100%;
   flex-shrink: 0;
+  font-size: @text_normal_size;
+  padding: 10px 15% 30px;
+  width: 100%;
 }
 .footer-container {
   border-top: @border_line;
@@ -112,7 +124,10 @@ p {
   padding: 10px 20px;
   border-bottom: @border_line;
 }
-
+.router-container {
+  min-height: 100%;
+  width: 100%;
+}
 @media(max-width: 768px) {
   .component-container {
     padding: 5px 10px 20px;
@@ -161,10 +176,23 @@ p {
 .sub-title { margin: 10px 0 15px; }
 .small-text { font-size: @text_small_size; }
 .smaller-text { font-size: @text_smaller_size; }
+.full-page { min-height:100%; width: 100%; }
 .full-width { width: 100%; }
+.form {
+  display: flex;
+  flex-direction: column;
+}
 
 @media(max-width: 768px) {
   .page-title { margin: 10px 0 15px; }
   .sub-title { margin: 5px 0 10px; }
 }
 /* General classes ends*/
+
+.logo {
+  background-image: url("assets/logo.png");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  height: 200px;
+  width: 200px;
+}

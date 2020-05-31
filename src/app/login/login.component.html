@@ -1,0 +1,54 @@
+<div class="component-container" fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <div class="login">
+        <mat-card>
+            <mat-card-title fxLayout="row" fxLayoutAlign="start center">
+                <div class="logo"></div>
+                <h4>anandmoghan.me</h4>
+            </mat-card-title>
+            <mat-card-content>
+                <h5 *ngIf="formType === 'resetPassword'">Reset Password</h5>
+                <h5 *ngIf="formType === 'signIn'">Sign in</h5>
+                <h5 *ngIf="formType === 'signUp'">Sign up</h5>
+                <form [formGroup]="formGroups[formType]" class="form">
+                    <mat-form-field *ngIf="formType === 'signUp'" fxFlex="30" fxFlex.xs>
+                        <mat-label>Name</mat-label>
+                        <input type="text" [formControl]="formControls.name" matInput>
+                        <mat-error *ngIf="formControls.name.hasError('required')">Required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="30" fxFlex.xs>
+                        <mat-label>Email</mat-label>
+                        <input type="email" [formControl]="formControls.email" matInput>
+                        <mat-error *ngIf="formControls.email.hasError('required')">Required</mat-error>
+                        <mat-error *ngIf="formControls.email.hasError('email')">Please enter a valid email address</mat-error>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="formType === 'signIn' || formType === 'signUp'" fxFlex="30" fxFlex.xs>
+                        <mat-label>Password</mat-label>
+                        <input type="password" [formControl]="formControls.password" matInput>
+                        <mat-error *ngIf="formControls.password.hasError('required')">Required</mat-error>
+                        <mat-error *ngIf="formControls.password.hasError('minlength')">Minimum of 8 characters is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="formType === 'signUp'" fxFlex="30" fxFlex.xs>
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" [formControl]="formControls.confirmPassword" matInput>
+                        <mat-error *ngIf="formControls.confirmPassword.hasError('required')">Required</mat-error>
+                        <mat-error *ngIf="formControls.confirmPassword.hasError('noMatch')">Password don't match</mat-error>
+                    </mat-form-field>
+                </form>
+                <div class="others" *ngIf="formType === 'signIn'">
+                    <a (click)="formType='resetPassword'">Reset Password</a><span> | New User? </span><a (click)="formType='signUp'">Sign Up</a>
+                </div>
+            </mat-card-content>
+            <mat-card-footer>
+                <button *ngIf="formType === 'resetPassword'" class="button">RESET</button>
+                <button *ngIf="formType === 'signIn'" class="button">Login</button>
+                <button *ngIf="formType === 'signUp'" class="button">Sign Up</button>
+                <button *ngIf="formType !== 'signIn'" class="button button-dark" (click)="formType='signIn'">Back</button>
+            </mat-card-footer>
+        </mat-card>
+        <div class="footer" fxLayout="row" fxLayoutAlign="start start">
+            <a href="https://anandmoghan.me">Home</a>
+            <a href="https://anandmoghan.me/about">About</a>
+            <a href="https://anandmoghan.me/contact">Poke Me!</a>
+        </div>
+    </div>
+</div>

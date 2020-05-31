@@ -1,26 +1,45 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 import {AppService} from "./services/app.service";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'db-root',
   template: `
       <div *ngIf="!appLoader" fxLayout="column" fxFill>
           <router-outlet></router-outlet>
-          Hello World! Dashboard will be online soon.
       </div>
-      <div *ngIf="appLoader" class="content-container" fxLayout="column" fxLayoutAlign="center center" fxFill>
+      <div *ngIf="appLoader" fxLayout="column" fxLayoutAlign="center center" fxFill>
           <mat-progress-spinner [diameter]="80" mode="indeterminate"></mat-progress-spinner>
       </div>
   `
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   appLoader = true;
 
-  constructor(appService: AppService) {
+  constructor(private appService: AppService, private router: Router) {
     appService.getLoader().subscribe((value => {
       this.appLoader = value;
     }))
+  }
+
+  ngOnInit(): void {
+    this.appService.addLoadComponent('firebase-auth')
+    firebase.initializeApp(environment.firebaseConfig);
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+
+      } else {
+        const redirectURL = this.router.url;
+        if (!redirectURL.startsWith('/login')) {
+          this.router.navigate([`login`], {queryParams: {'redirect': redirectURL}}).then();
+        }
+      }
+      this.appService.removeLoadedComponent('firebase-auth')
+    });
   }
 }
