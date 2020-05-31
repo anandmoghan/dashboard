@@ -1,1 +1,170 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/fonts/content_font.css';
+@import 'assets/fonts/header_font.css';
+@import 'assets/fonts/material_icons.css';
+
+@text_biggest_size: 48px;
+@text_bigger_size: 32px;
+@text_big_size: 24px;
+@text_normal_big_size: 18px;
+@text_normal_size: 16px;
+@text_small_size: 14px;
+@text_smaller_size: 12px;
+@text_smallest_size: 10px;
+
+@color_border: #eeeeee;
+@color_dark: #424242;
+@color_dark_border: #cccccc;
+@color_link: #777777;
+@color_light: #999999;
+@color_lighter: #eeeeee;
+@color_lightest: #f9f9f9;
+@color_light_border: #f3f3f3;
+@color_red: #b00020;
+
+@light_border_line: 1px solid @color_light_border;
+@border_line: 1px solid @color_border;
+@dark_border_line: 1px solid @color_dark_border;
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+*:not(.mat-icon) {
+  font-size: 16px;
+}
+
+*:focus {
+  outline: none;
+}
+
+/* Heading starts */
+h1, h2, h3, h4, h5, h6, .button, .button-dark {
+  font-family: 'Quicksand', sans-serif!important;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0 10px;
+}
+h1 {
+  font-size: 64px!important;
+  margin-bottom: 20px;
+}
+h2 { font-size: 48px!important; }
+h3 { font-size: 32px!important; }
+h4 { font-size: 24px!important; }
+h5 { font-size: 18px!important; }
+h6 { font-size: 16px!important; }
+
+@media(max-width: 768px) {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0 15px;
+  }
+  h1 {
+    font-size: 48px!important;
+    margin-bottom: 15px;
+  }
+  h2 { font-size: 32px!important; }
+  h3 { font-size: 24px!important; }
+  h4 { font-size: 18px!important; }
+  h5 { font-size: 18px!important; }
+  h6 { font-size: 16px!important; }
+}
+
+*:not(.mat-icon):not(.fa) {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: @color_link;
+  text-decoration: none;
+}
+a:hover {
+  color: @color_dark;
+}
+p {
+  text-align: justify;
+}
+/* Heading ends */
+
+/* General Material Classes starts */
+.mat-checkbox-layout .mat-checkbox-label, .mat-radio-label-content { white-space: initial!important; }
+.mat-icon {
+  height: auto!important;
+  width: auto!important;;
+}
+.mat-tab-nav-bar, .mat-tab-header { border-bottom: @border_line; }
+.mat-tab-body-content { padding: 10px 5px!important; }
+.mat-error { font-size: @text_smaller_size; }
+/* General Material Classes ends */
+
+/* Container class starts */
+.component-container {
+  padding: 10px 15% 30px;
+  font-size: @text_normal_size;
+  min-height: 100%;
+  flex-shrink: 0;
+}
+.footer-container {
+  border-top: @border_line;
+}
+.nav-container {
+  padding: 10px 20px;
+  border-bottom: @border_line;
+}
+
+@media(max-width: 768px) {
+  .component-container {
+    padding: 5px 10px 20px;
+  }
+  .nav-container {
+    padding: 15px;
+  }
+}
+/* Container class ends */
+
+/* Color classes starts */
+.color-dark {
+  color: @color_dark;
+}
+.color-link {
+  color: @color_link;
+}
+/* Color classes ends */
+
+/* General classes starts*/
+.bold-text { font-weight: bold; }
+.border {
+  border-top: @border_line;
+}
+.border-dark {
+  border-top: @dark_border_line;
+}
+.button, .pointer { cursor: pointer; }
+.button {
+  background: #ffffff;
+  border: @dark_border_line;
+  color: @color_dark;
+  margin: 7px;
+  padding: 6px 19px;
+  text-align: center;
+  user-select: none;
+  text-transform: uppercase;
+}
+.button.button-dark {
+  background-color: @color_dark;
+  color: @color_lighter;
+}
+.button.disabled { cursor: default; opacity: 0.6; }
+.no-indent { text-indent: 0; }
+.page-title { margin: 20px 0 25px; }
+.sub-title { margin: 10px 0 15px; }
+.small-text { font-size: @text_small_size; }
+.smaller-text { font-size: @text_smaller_size; }
+.full-width { width: 100%; }
+
+@media(max-width: 768px) {
+  .page-title { margin: 10px 0 15px; }
+  .sub-title { margin: 5px 0 10px; }
+}
+/* General classes ends*/
