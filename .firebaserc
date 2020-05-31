@@ -1,0 +1,14 @@
+{
+    "projects": {
+        "default": "anandmoghan-me"
+    },
+    "targets": {
+        "anandmoghan-me": {
+            "hosting": {
+                "dashboard": [
+                    "dashboard-anandmoghan"
+                ]
+            }
+        }
+    }
+}
