@@ -1,5 +1,5 @@
 <div class="component-container" fxLayout="column" fxLayoutAlign="center center" fxFill>
-    <div class="login">
+    <div class="login" fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start start">
         <mat-card>
             <mat-card-title fxLayout="row" fxLayoutAlign="start center">
                 <div class="logo"></div>
@@ -39,12 +39,13 @@
                 </div>
             </mat-card-content>
             <mat-card-footer>
-                <button *ngIf="formType === 'resetPassword'" class="button">RESET</button>
-                <button *ngIf="formType === 'signIn'" class="button">Login</button>
-                <button *ngIf="formType === 'signUp'" class="button">Sign Up</button>
+                <button *ngIf="formType === 'resetPassword'" class="button" (click)="resetPassword()">RESET</button>
+                <button *ngIf="formType === 'signIn'" class="button" (click)="signIn()">Login</button>
+                <button *ngIf="formType === 'signUp'" class="button" (click)="signUp()">Sign Up</button>
                 <button *ngIf="formType !== 'signIn'" class="button button-dark" (click)="formType='signIn'">Back</button>
             </mat-card-footer>
         </mat-card>
+        <div fxFlex.xs></div>
         <div class="footer" fxLayout="row" fxLayoutAlign="start start">
             <a href="https://anandmoghan.me">Home</a>
             <a href="https://anandmoghan.me/about">About</a>

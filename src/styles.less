@@ -92,6 +92,7 @@ p {
 /* General Material Classes starts */
 .mat-card {
   border-radius: 0!important;
+  box-sizing: border-box;
   padding: 20px!important;
 }
 .mat-card-footer { margin: 0; }
@@ -114,7 +115,7 @@ p {
 .component-container {
   flex-shrink: 0;
   font-size: @text_normal_size;
-  padding: 10px 15% 30px;
+  padding: 20px 15%;
   width: 100%;
 }
 .footer-container {
@@ -130,7 +131,7 @@ p {
 }
 @media(max-width: 768px) {
   .component-container {
-    padding: 5px 10px 20px;
+    padding: 10px;
   }
   .nav-container {
     padding: 15px;
