@@ -1,0 +1,30 @@
+@import "../../styles";
+
+.dashboard {
+  .sidenav {
+    min-width: 250px;
+    .user {
+      background-color: @theme_main_color;
+      color: @theme_accent_color;
+      height: 200px;
+      padding: 10px 15px;
+      font-size: @text_small_size;
+    }
+    .nav {
+      .item {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+      .item:hover {
+        background: @theme_accent_color;
+      }
+    }
+    .toolbar {
+      background: @theme_accent_color;
+    }
+    .content {
+      overflow: auto;
+      height: 100%;
+    }
+  }
+}

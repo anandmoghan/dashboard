@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
   host: {class: 'router-container'}
 })
 export class MainComponent implements OnInit {
+  tabsList = [{
+    name: 'Overview',
+    url: '/'
+  }, {
+    name: 'History',
+    url: '/history'
+  }, {
+    name: 'Notes',
+    url: '/notes'
+  }, {
+    name: 'Logs',
+    url: '/logs'
+  }]
 
   constructor() { }
 

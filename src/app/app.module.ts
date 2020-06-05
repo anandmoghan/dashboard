@@ -12,12 +12,23 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {MainComponent} from './main/main.component';
+import { OverviewComponent } from './overview/overview.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import { LogsComponent } from './logs/logs.component';
+import { NotesComponent } from './notes/notes.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    OverviewComponent,
+    LogsComponent,
+    NotesComponent,
+    HistoryComponent
   ],
   imports: [
     AppRoutingModule,
@@ -28,7 +39,10 @@ import {MainComponent} from './main/main.component';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,19 @@
-<div class="dashboard" fxLayout="column" fxFill>
-    <div class="bar">anandmoghan.me</div>
-    <div class="window" fxLayout="row" fxFlex>
-        <div class="side"></div>
-        <div class="content" fxFlex>Hello World!</div>
-    </div>
-</div>
+<mat-drawer-container class="dashboard" fxFill>
+    <mat-drawer class="sidenav" mode="side" opened>
+        <div class="user" fxLayout="column" fxLayoutAlign="end start">
+            <mat-icon>account_circle</mat-icon>
+            <div class="name">Hello Anand!</div>
+        </div>
+        <div class="nav">
+            <div class="item" *ngFor="let tab of tabsList" [routerLink]="tab.url">{{tab.name}}</div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar class="toolbar">
+            <h3 class="title">anandmoghan.me</h3>
+        </mat-toolbar>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
